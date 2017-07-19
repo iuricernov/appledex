@@ -14,7 +14,6 @@ class PokemonListVC : UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var pokemonList: UITableView!
     
-    
     // MARK: UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {

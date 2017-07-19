@@ -1,0 +1,20 @@
+platform :ios, '9.0'
+
+target 'ApDex' do
+  use_frameworks!
+
+  pod 'RestKit', '~> 0.27.0'
+  pod 'MagicalRecord', '2.3.2'
+  # Pods for ApDex
+
+  target 'ApDexTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'ApDexUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
