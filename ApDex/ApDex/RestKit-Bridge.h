@@ -9,7 +9,8 @@
 #ifndef RestKit_Bridge_h
 #define RestKit_Bridge_h
 
-#import <RestKit/RestKit.h>
+@import RestKit;
+@import CoreData;
 
 // Use a class extension to expose access to MagicalRecord's private setter methods
 @interface NSManagedObjectContext ()

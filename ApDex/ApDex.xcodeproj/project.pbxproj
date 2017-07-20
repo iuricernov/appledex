@@ -14,6 +14,7 @@
 		CA1799521F1FA8020089B9BD /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA1799501F1FA8020089B9BD /* CoreDataModel.xcdatamodeld */; };
 		CA17995E1F1FAAF90089B9BD /* Pokemon+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17995C1F1FAAF80089B9BD /* Pokemon+CoreDataClass.swift */; };
 		CA17995F1F1FAAF90089B9BD /* Pokemon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA17995D1F1FAAF80089B9BD /* Pokemon+CoreDataProperties.swift */; };
+		CA1799631F1FC09E0089B9BD /* ADServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1799621F1FC09E0089B9BD /* ADServicesManager.swift */; };
 		CACBE8D91F1EAB6900B5AD2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACBE8D81F1EAB6900B5AD2C /* AppDelegate.swift */; };
 		CACBE8DB1F1EAB6900B5AD2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACBE8DA1F1EAB6900B5AD2C /* ViewController.swift */; };
 		CACBE8DE1F1EAB6900B5AD2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CACBE8DC1F1EAB6900B5AD2C /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		CA1799511F1FA8020089B9BD /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		CA17995C1F1FAAF80089B9BD /* Pokemon+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Pokemon+CoreDataClass.swift"; path = "Model/CoreDataModels/Pokemon+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CA17995D1F1FAAF80089B9BD /* Pokemon+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Pokemon+CoreDataProperties.swift"; path = "Model/CoreDataModels/Pokemon+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CA1799621F1FC09E0089B9BD /* ADServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADServicesManager.swift; path = Business/ADServicesManager.swift; sourceTree = "<group>"; };
 		CACBE8D51F1EAB6900B5AD2C /* ApDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CACBE8D81F1EAB6900B5AD2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CACBE8DA1F1EAB6900B5AD2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 			name = CoreDataModels;
 			sourceTree = "<group>";
 		};
+		CA1799611F1FC07B0089B9BD /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				CA1799621F1FC09E0089B9BD /* ADServicesManager.swift */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
 		CACBE8CC1F1EAB6900B5AD2C = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		CACBE8D71F1EAB6900B5AD2C /* ApDex */ = {
 			isa = PBXGroup;
 			children = (
+				CA1799611F1FC07B0089B9BD /* Business */,
 				CA1799481F1F9A130089B9BD /* Model */,
 				CACBE9061F1EAEE000B5AD2C /* View */,
 				CACBE8D81F1EAB6900B5AD2C /* AppDelegate.swift */,
@@ -510,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CACBE8DB1F1EAB6900B5AD2C /* ViewController.swift in Sources */,
+				CA1799631F1FC09E0089B9BD /* ADServicesManager.swift in Sources */,
 				CA17994A1F1F9A2C0089B9BD /* ADCoreDataManager.swift in Sources */,
 				CA1799521F1FA8020089B9BD /* CoreDataModel.xcdatamodeld in Sources */,
 				CA17995E1F1FAAF90089B9BD /* Pokemon+CoreDataClass.swift in Sources */,
