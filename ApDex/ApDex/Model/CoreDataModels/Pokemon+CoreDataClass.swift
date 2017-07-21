@@ -24,7 +24,8 @@ public class PokemonRequestObject : NSObject {
 public class Pokemon: NSManagedObject {
     static func responseMapping() -> RKEntityMapping {
         let mapping = RKEntityMapping(forEntityForName: mr_entityName(), in: RKManagedObjectStore.default())!
-        mapping.addAttributeMappings(from: ["name"])
+        mapping.identificationAttributes = ["url"]
+        mapping.addAttributeMappings(from: ["name", "url"])
         return mapping
     }
 }
