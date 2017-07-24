@@ -88,6 +88,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="0ua-4y-P2h"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ISg-O0-Wa4">
+                                <rect key="frame" x="169" y="378" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -95,7 +99,9 @@
                             <constraint firstItem="48J-pE-XaR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9rV-hM-RWG"/>
                             <constraint firstItem="Mv3-eo-hya" firstAttribute="top" secondItem="yhn-L1-ccr" secondAttribute="bottom" constant="8" id="DB4-MR-fap"/>
                             <constraint firstItem="yhn-L1-ccr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Gfi-ud-YKV"/>
+                            <constraint firstItem="ISg-O0-Wa4" firstAttribute="centerY" secondItem="48J-pE-XaR" secondAttribute="centerY" id="M9I-M7-cT1"/>
                             <constraint firstItem="nDK-ps-hNV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="O8r-7j-Own"/>
+                            <constraint firstItem="ISg-O0-Wa4" firstAttribute="centerX" secondItem="48J-pE-XaR" secondAttribute="centerX" id="STV-cM-lHe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="48J-pE-XaR" secondAttribute="bottom" constant="20" id="W8E-mi-Qru"/>
                             <constraint firstItem="48J-pE-XaR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aSg-6n-9Xn"/>
                             <constraint firstItem="Mv3-eo-hya" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cOg-RE-EM4"/>
@@ -107,6 +113,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1eA-lQ-p9b"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ISg-O0-Wa4" id="ohP-nX-Fqj"/>
                         <outlet property="pokemonList" destination="48J-pE-XaR" id="Dcj-g1-PI8"/>
                         <outlet property="searchButton" destination="Mv3-eo-hya" id="Mk9-XC-BvN"/>
                         <outlet property="searchTextField" destination="nDK-ps-hNV" id="nbP-sA-Itt"/>
