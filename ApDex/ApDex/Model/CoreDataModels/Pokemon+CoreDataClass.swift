@@ -22,6 +22,18 @@ public class PokemonRequestObject : NSObject {
 
 @objc(Pokemon)
 public class Pokemon: NSManagedObject {
+    var number: Int? {
+        get { return url != nil ? Pokemon.parseNumberFromURL(url!) : nil }
+    }
+    
+    private static func parseNumberFromURL(_ urlString: String) -> Int? {
+        if let url = URL(string: urlString) {
+            return Int(url.lastPathComponent)
+        } else {
+            return nil
+        }
+    }
+    
     static func responseMapping() -> RKEntityMapping {
         let mapping = RKEntityMapping(forEntityForName: mr_entityName(), in: RKManagedObjectStore.default())!
         mapping.identificationAttributes = ["url"]
