@@ -11,6 +11,8 @@ import UIKit
 import CoreData
 
 class PokemonListVC : UIViewController, UITableViewDelegate, UITableViewDataSource, PokemonListPresenterDelegate {
+    private let showPokemonSegueIdentifier = "ShowPokemon"
+    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var pokemonList: UITableView!
@@ -65,7 +67,20 @@ class PokemonListVC : UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell")!
         cell.textLabel?.text = presenter!.getPokemon(at: indexPath)
-        
         return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: showPokemonSegueIdentifier, sender: presenter?.getPokemonNumber(at: indexPath))
+    }
+    
+    // MARK: UIViewController
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showPokemonSegueIdentifier, let pokemonNumber = sender as? Int {
+            (segue.destination as! PokemonDetailVC).selectedPokemonNumber = pokemonNumber
+        }
     }
 }

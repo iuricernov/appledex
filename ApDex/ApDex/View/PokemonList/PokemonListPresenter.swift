@@ -46,6 +46,14 @@ class PokemonListPresenter : ADServicesManagerDelegate {
         }
     }
     
+    func getPokemonNumber(at indexPath: IndexPath) -> Int {
+        if indexPath.section == 0 && (pokemonData?.count ?? 0) > indexPath.row {
+            return pokemonData![indexPath.row].number ?? 0
+        } else {
+            return 0
+        }
+    }
+    
     // MARK: ADServicesManagerDelegate
     
     func requestCompletedWithSuccess(with object: [Any]?) {
