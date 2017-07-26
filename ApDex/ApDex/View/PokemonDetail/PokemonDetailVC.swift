@@ -61,7 +61,7 @@ class PokemonDetailVC : UIViewController, PokemonDetailPresenterDelegate {
     
     func showErrorLoadingPokemonData() {
         let alert = UIAlertController(title: "Error",
-                                      message: "Something wrong happened while loading Pokemon number \(selectedPokemonNumber)",
+                                      message: "Something wrong happened while loading Pokemon number \(selectedPokemonNumber!)",
                                       preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         present(alert, animated: true, completion: nil)

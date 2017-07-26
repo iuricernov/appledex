@@ -24,8 +24,12 @@ class PokemonDetailPresenter : ADServicesManagerDelegate {
     }
     
     func delegateDidLoad() {
-        delegate.showLoadingPokemon()
-        ADServicesManager.sharedInstance.requestPokemonDetail(pokemonID: pokemonNumber, forDelegate: self)
+        if let savedPokemon = getSavedPokemon(forNumber: pokemonNumber) {
+            delegate.showPokemonData(forPokemonDetail: savedPokemon)
+        } else {
+            delegate.showLoadingPokemon()
+            ADServicesManager.sharedInstance.requestPokemonDetail(pokemonID: pokemonNumber, forDelegate: self)
+        }
     }
     
     // MARK: ADServicesManagerDelegate
@@ -36,5 +40,11 @@ class PokemonDetailPresenter : ADServicesManagerDelegate {
     
     func requestCompletedWithFailure(error: Error?) {
         delegate.showErrorLoadingPokemonData()
+    }
+    
+    // Helpers
+    
+    private func getSavedPokemon(forNumber number: Int) -> PokemonDetail? {
+        return PokemonDetail.mr_findFirst(with: NSPredicate(format: "pokemonID = %d", number))
     }
 }
