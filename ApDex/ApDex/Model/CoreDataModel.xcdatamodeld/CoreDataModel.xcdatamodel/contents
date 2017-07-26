@@ -4,7 +4,23 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="PokemonDetail" representedClassName="PokemonDetail" syncable="YES">
+        <attribute name="baseXP" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pokemonID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="pokemonTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PokemonType" inverseName="pokemonDetail" inverseEntity="PokemonType" syncable="YES"/>
+    </entity>
+    <entity name="PokemonType" representedClassName="PokemonType" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slot" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="pokemonDetail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PokemonDetail" inverseName="pokemonTypes" inverseEntity="PokemonDetail" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Pokemon" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="PokemonDetail" positionX="144" positionY="-9" width="128" height="148"/>
+        <element name="PokemonType" positionX="351" positionY="18" width="128" height="88"/>
     </elements>
 </model>

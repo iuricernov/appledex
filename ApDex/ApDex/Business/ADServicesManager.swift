@@ -19,6 +19,7 @@ class ADServicesManager {
     private let objectManager: RKObjectManager
     
     private let allPokemonPathPattern = "/api/v2/pokemon/"
+    private let pokemonDetailPathPattern = "/api/v2/pokemon/:pokemonID/"
     
     static let sharedInstance = ADServicesManager()
     
@@ -31,7 +32,8 @@ class ADServicesManager {
     }
     
     private func defaultClassRoutes() -> [RKRoute] {
-        return [RKRoute(name: allPokemonPathPattern, pathPattern: allPokemonPathPattern, method: RKRequestMethod.GET)]
+        return [RKRoute(name: allPokemonPathPattern, pathPattern: allPokemonPathPattern, method: RKRequestMethod.GET),
+                RKRoute(name: pokemonDetailPathPattern, pathPattern: pokemonDetailPathPattern, method: RKRequestMethod.GET)]
     }
     
     private func defaultResponseDescriptors() -> [RKResponseDescriptor] {
@@ -40,6 +42,11 @@ class ADServicesManager {
         return [RKResponseDescriptor(mapping: PokemonRequestObject.responseMapping(),
                                      method: RKRequestMethod.GET,
                                      pathPattern: allPokemonPathPattern,
+                                     keyPath: nil,
+                                     statusCodes: successStatusCodes),
+                RKResponseDescriptor(mapping: PokemonDetail.responseMapping(),
+                                     method: RKRequestMethod.GET,
+                                     pathPattern: pokemonDetailPathPattern,
                                      keyPath: nil,
                                      statusCodes: successStatusCodes)]
     }
@@ -62,6 +69,24 @@ class ADServicesManager {
                                             delegate.requestCompletedWithFailure(error: error)
                                     })
         
+        objectManager.enqueue(operation)
+    }
+    
+    func requestPokemonDetail(pokemonID: Int, forDelegate delegate: ADServicesManagerDelegate) {
+        let urlPathData = ["pokemonID":pokemonID]
+        let urlRequest: URLRequest! = objectManager.requestWithPath(
+                                            forRouteNamed: pokemonDetailPathPattern,
+                                            object: urlPathData,
+                                            parameters: nil) as URLRequest!
+        let operation: RKObjectRequestOperation! = objectManager.managedObjectRequestOperation(
+            with: urlRequest,
+            managedObjectContext: objectManager.managedObjectStore.mainQueueManagedObjectContext,
+            success:{ (_: RKObjectRequestOperation?, result: RKMappingResult?) in
+                            delegate.requestCompletedWithSuccess(with: result?.array())
+                    },
+            failure:{(_: RKObjectRequestOperation?, error: Error?) in
+                            delegate.requestCompletedWithFailure(error: error)
+                    })
         objectManager.enqueue(operation)
     }
 }
