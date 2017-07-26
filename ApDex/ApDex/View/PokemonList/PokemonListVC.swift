@@ -18,11 +18,11 @@ class PokemonListVC : UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var pokemonList: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var presenter: PokemonListPresenter? = nil
+    private var presenter: PokemonListPresenter! = nil
     
     override func viewDidLoad() {
         presenter = PokemonListPresenter(self)
-        presenter!.delegateDidLoad()
+        presenter.delegateDidLoad()
     }
     
     // MARK: PokemonListPresenterDelegate
@@ -58,7 +58,7 @@ class PokemonListVC : UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
             case 0:
-                return presenter!.getPokemonCount()
+                return presenter.getPokemonCount()
             default:
                 return 0;
         }
@@ -66,14 +66,14 @@ class PokemonListVC : UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell")!
-        cell.textLabel?.text = presenter!.getPokemon(at: indexPath)
+        cell.textLabel?.text = presenter.getPokemon(at: indexPath)
         return cell
     }
     
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: showPokemonSegueIdentifier, sender: presenter?.getPokemonNumber(at: indexPath))
+        performSegue(withIdentifier: showPokemonSegueIdentifier, sender: presenter.getPokemonNumber(at: indexPath))
     }
     
     // MARK: UIViewController
