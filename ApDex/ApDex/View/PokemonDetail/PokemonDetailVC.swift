@@ -39,6 +39,9 @@ class PokemonDetailVC : UIViewController, PokemonDetailPresenterDelegate {
     }
     
     func showPokemonData(forPokemonDetail pokemon: PokemonDetail) {
+        if pokemon.imageURL != nil {
+            pokemonImageView.setImageWith(URL(string: pokemon.imageURL!))
+        }
         pokemonNameLabel.text = pokemon.name
         pokemonNumberLabel.text = "Pokemon #\(pokemon.pokemonID)"
         pokemonWeightLabel.text = "Weight: \(pokemon.weight)"
